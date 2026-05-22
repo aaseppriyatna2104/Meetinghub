@@ -1167,6 +1167,70 @@
             { id: 6, name: 'Idham', email: 'idham@ops1', password: 'idham123', role: 'staff', avatar: 'MT', division: 'Maintanance', position: 'Officer' }
         ];
 
+        const dummyMeetings = [
+            {
+                id: 1,
+                title: 'Q2 Planning Session',
+                description: 'Strategic planning untuk Q2 2024',
+                meetingDate: '2024-05-25',
+                startTime: '09:00',
+                endTime: '11:00',
+                room: 'Meeting Room A',
+                onlineLink: 'https://meet.google.com/abc-defg-hij',
+                organizerId: 2,
+                status: 'scheduled',
+                participants: [2, 3, 4],
+                notes: null
+            },
+            {
+                id: 2,
+                title: 'Team Standup',
+                description: 'Daily standup meeting IT Team',
+                meetingDate: new Date().toISOString().split('T')[0],
+                startTime: '10:00',
+                endTime: '10:30',
+                room: 'Virtual',
+                onlineLink: 'https://meet.google.com/xyz-uvwx-yzab',
+                organizerId: 2,
+                status: 'ongoing',
+                participants: [2, 3, 4, 5],
+                notes: null
+            },
+            {
+                id: 3,
+                title: 'Client Presentation',
+                description: 'Presentasi ke klien tentang project baru',
+                meetingDate: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                startTime: '14:00',
+                endTime: '15:30',
+                room: 'Meeting Room B',
+                onlineLink: '',
+                organizerId: 3,
+                status: 'completed',
+                participants: [2, 3, 4, 5],
+                notes: {
+                    id: 1,
+                    summary: 'Client sangat puas dengan proposal',
+                    discussionPoints: ['Scope project', 'Timeline', 'Budget'],
+                    decisions: ['Lanjut ke tahap development'],
+                    actionItems: [{ task: 'Siapkan contract', pic: 3, deadline: '2024-05-28' }]
+                }
+            },
+            {
+                id: 4,
+                title: 'Performance Review',
+                description: 'Review kinerja tim',
+                meetingDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                startTime: '13:00',
+                endTime: '14:00',
+                room: 'Meeting Room C',
+                onlineLink: 'https://meet.google.com/pqr-stuv-wxyz',
+                organizerId: 3,
+                status: 'scheduled',
+                participants: [2, 3, 4, 5],
+                notes: null
+            }
+        ];
         appState.users = dummyUsers;
         appState.meetings = dummyMeetings;
 
