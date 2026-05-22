@@ -1589,7 +1589,7 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Statistik Meeting (Last 12 Months)</h3>
+                            <h3 class="card-title">Statistik Meeting (12 Months)</h3>
                         </div>
                         <div style="position: relative; height: 300px;">
                             <canvas id="statsChart"></canvas>
@@ -2296,23 +2296,37 @@
         }
 
         function previousMonth() {
-            alert('Fitur navigasi bulan akan diimplementasikan');
+            currentMonth.setMonth(currentMonth.getMonth() - 1);
+            renderCalendar(currentMonth);
         }
 
         function nextMonth() {
-            alert('Fitur navigasi bulan akan diimplementasikan');
+            currentMonth.setMonth(currentMonth.getMonth() + 1);
+            renderCalendar(currentMonth);
         }
 
         function exportMeetingsPDF() {
-            alert('Fitur export PDF akan diimplementasikan dengan library pdfkit');
+            const doc = new PDFDocument();
+            doc.pipe(saveAsStream("meetings.pdf"));
+            doc.fontSize(18).text("Daftar Rapat", { align: "center" });
+            meetings.forEach(m => {
+            doc.fontSize(12).text(`${m.date} - ${m.title} (${m.attendees} peserta)`);
+            });
+             doc.end();
         }
 
         function exportMeetingsExcel() {
-            alert('Fitur export Excel akan diimplementasikan dengan library xlsx');
+            const worksheet = XLSX.utils.json_to_sheet(meetings);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, "Meetings");
+            XLSX.writeFile(workbook, "meetings.xlsx");
         }
 
         function exportAttendanceList() {
-            alert('Fitur export attendance akan diimplementasikan');
+            const worksheet = XLSX.utils.json_to_sheet(attendance);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, "Attendance");
+            XLSX.writeFile(workbook, "attendance.xlsx");
         }
 
         function renderStatsChart() {
@@ -2321,9 +2335,9 @@
 
             const ctx = canvas.getContext('2d');
             
-            // Dummy data untuk 12 bulan terakhir
+            // Data untuk 12 bulan terakhir
             const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-            const data = [4, 5, 3, 7, 6, 8, 5, 9, 7, 6, 8, 10];
+            const data = [];
 
             new Chart(ctx, {
                 type: 'line',
