@@ -2304,6 +2304,9 @@
             currentMonth.setMonth(currentMonth.getMonth() + 1);
             renderCalendar(currentMonth);
         }
+        function renderCalendar(monthDate) {
+            console.log("Menampilkan kalender untuk:", monthDate.toLocaleDateString());
+        }
 
         function exportMeetingsPDF() {
             const doc = new PDFDocument();
