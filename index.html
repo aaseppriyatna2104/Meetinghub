@@ -1157,8 +1157,8 @@
             notifications: []
         };
 
-        // ============ DUMMY DATA ============
-        const dummyUsers = [
+        // ============ DATA ============
+        const Users = [
             { id: 1, name: 'Admin User', email: 'admin@company.com', password: 'admin123', role: 'admin', avatar: 'AU' },
             { id: 2, name: 'Budi Santoso', email: 'budi@company.com', password: 'staff123', role: 'staff', avatar: 'BS', division: 'IT', position: 'Developer' },
             { id: 3, name: 'Siti Nurhaliza', email: 'siti@company.com', password: 'staff123', role: 'staff', avatar: 'SN', division: 'HR', position: 'Manager' },
@@ -1166,7 +1166,7 @@
             { id: 5, name: 'Dewi Lestari', email: 'dewi@company.com', password: 'staff123', role: 'staff', avatar: 'DL', division: 'Finance', position: 'Officer' }
         ];
 
-        const dummyMeetings = [
+        const Meetings = [
             {
                 id: 1,
                 title: 'Q2 Planning Session',
@@ -1274,8 +1274,8 @@
             }
         ];
 
-        appState.users = dummyUsers;
-        appState.meetings = dummyMeetings;
+        appState.users = Users;
+        appState.meetings = Meetings;
 
         // ============ UTILITY FUNCTIONS ============
         function formatDate(dateStr) {
