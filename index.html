@@ -1159,35 +1159,121 @@
 
         // ============ DUMMY DATA ============
         const dummyUsers = [
-            { id: 1, name: 'Admin User', email: 'admin@ops1', password: 'admin123', role: 'admin', avatar: 'AU' },
-            { id: 2, name: 'kevin', email: 'kevin@ops1', password: 'kevin123', role: 'admin', avatar: 'MJ', division: 'Manager Operasional', position: 'Officer' },
-            { id: 3, name: 'Mahendra', email: 'mahendra@ops1', password: 'mahendra123', role: 'staff', avatar: 'PM', division: 'Project Manager', position: 'Officer' },
-            { id: 4, name: 'Asep', email: 'asep@ops1', password: 'asep123', role: 'staff', avatar: 'DY', division: 'Deployment', position: 'officer' },
-            { id: 5, name: 'Nana', email: 'nana@ops1', password: 'nana123', role: 'staff', avatar: 'WH', division: 'Warehouse', position: 'officer' },
-            { id: 6, name: 'Idham', email: 'idham@ops1', password: 'idham123', role: 'staff', avatar: 'MT', division: 'Maintanance', position: 'Officer' }
+            { id: 1, name: 'Admin User', email: 'admin@company.com', password: 'admin123', role: 'admin', avatar: 'AU' },
+            { id: 2, name: 'Budi Santoso', email: 'budi@company.com', password: 'staff123', role: 'staff', avatar: 'BS', division: 'IT', position: 'Developer' },
+            { id: 3, name: 'Siti Nurhaliza', email: 'siti@company.com', password: 'staff123', role: 'staff', avatar: 'SN', division: 'HR', position: 'Manager' },
+            { id: 4, name: 'Ahmad Hidayat', email: 'ahmad@company.com', password: 'staff123', role: 'staff', avatar: 'AH', division: 'Marketing', position: 'Specialist' },
+            { id: 5, name: 'Dewi Lestari', email: 'dewi@company.com', password: 'staff123', role: 'staff', avatar: 'DL', division: 'Finance', position: 'Officer' }
         ];
 
         const dummyMeetings = [
             {
-                id: 2,
-                title: 'Penguatan Sistem Operasional',
-                description: 'Sistem Operasional Setiap Divisi',
-                meetingDate: '2024-05-20',
-                startTime: '13:30',
-                endTime: '15:00',
-                room: 'Virtual',
+                id: 1,
+                title: 'Q2 Planning Session',
+                description: 'Strategic planning untuk Q2 2024',
+                meetingDate: '2024-05-25',
+                startTime: '09:00',
+                endTime: '11:00',
+                room: 'Meeting Room A',
                 onlineLink: 'https://meet.google.com/abc-defg-hij',
-                organizerId: 1,
+                organizerId: 2,
+                status: 'scheduled',
+                participants: [2, 3, 4],
+                notes: null
+            },
+            {
+                id: 2,
+                title: 'Team Standup',
+                description: 'Daily standup meeting IT Team',
+                meetingDate: new Date().toISOString().split('T')[0],
+                startTime: '10:00',
+                endTime: '10:30',
+                room: 'Virtual',
+                onlineLink: 'https://meet.google.com/xyz-uvwx-yzab',
+                organizerId: 2,
+                status: 'ongoing',
+                participants: [2, 3, 5],
+                notes: null
+            },
+            {
+                id: 3,
+                title: 'Client Presentation',
+                description: 'Presentasi ke klien tentang project baru',
+                meetingDate: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                startTime: '14:00',
+                endTime: '15:30',
+                room: 'Meeting Room B',
+                onlineLink: '',
+                organizerId: 3,
                 status: 'completed',
-                participants: [2, 3, 4, 5, 6],
+                participants: [2, 3, 4],
                 notes: {
                     id: 1,
-                    summary: '1. Finance Ops - Dashboard Finance Ops akan sangat membantu operasional Recharge.- Terdapat selisih data Flazz: Rp14.500 vs Rp12.300 (selisih Rp2.200).- Target penyelesaian maksimal jam 17.00.2. Deployment Warisan Kopi- Kesalahan ada di sisi Marketing, PKS belum clear.- SLA masih dalam batas 7 hari kerja.3. Routing JABODETABEK- Kegiatan deploy kosong hingga Jumat.- Penarikan minimelts menunggu info posisi mesin dari Sales.- Penarikan Ta WA – Baywalk Mall dilakukan bila ada request ke area Tangerang.- Survey sudah dilakukan di 3 lokasi, rencana masuk minggu ke‑4 akhir bulan.4. Tim Maintenanc- Mesin Recharge di Balai Kota: kendala akses masuk, mesin offline, status lokasi belum jelas.- TMII & Transsnow World: H‑1 perlu info PM untuk akses masuk.5. Manajer Operasional- GSheet tidak akan digunakan lagi karena data terlalu berat.- Akan ada fitur Dashboard baru untuk tim Maintain, WH, Deploy, dan PM.- Dashboard akan menampilkan analisa mesin (offline, bermasalah), stok opname, rules knowledge mesin, serta equipment replacement/relokasi.- Uji KIR (6 bulan sekali) dan Service Mobil (4 bulan sekali) akan dimonitor lewat kalender di dashboard.- Monitoring daily report summary warehouse mengikuti rules yang sudah ditetapkan.',
+                    summary: 'Client sangat puas dengan proposal',
                     discussionPoints: ['Scope project', 'Timeline', 'Budget'],
-                    decisions: ['Lanjut ke tahap Meeting Selanjutnya'],
+                    decisions: ['Lanjut ke tahap development'],
                     actionItems: [{ task: 'Siapkan contract', pic: 3, deadline: '2024-05-28' }]
+                }
+            },
+            {
+                id: 4,
+                title: 'Performance Review',
+                description: 'Review kinerja tim',
+                meetingDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                startTime: '13:00',
+                endTime: '14:00',
+                room: 'Meeting Room C',
+                onlineLink: 'https://meet.google.com/pqr-stuv-wxyz',
+                organizerId: 3,
+                status: 'scheduled',
+                participants: [2, 3, 4, 5],
+                notes: null
+            },
+            {
+                id: 5,
+                title: 'Operations Meeting - Finance & Logistics',
+                description: 'Meeting operasional membahas Finance Ops, Deployment, Routing, Maintenance, dan Dashboard Monitoring',
+                meetingDate: '2026-05-20',
+                startTime: '13:30',
+                endTime: '15:00',
+                room: 'Meeting Room A',
+                onlineLink: 'https://meet.google.com/ops-meeting-2026',
+                organizerId: 3,
+                status: 'completed',
+                participants: [2, 3, 4, 5],
+                notes: {
+                    id: 2,
+                    summary: 'Meeting operasional membahas status Finance Ops, Deployment Warisan Kopi, Routing JABODETABEK, Tim Maintenance, dan rencana implementasi Dashboard baru untuk monitoring operasional yang lebih efisien.',
+                    discussionPoints: [
+                        'Finance Ops - Dashboard akan membantu operasional Recharge, dengan selisih data Flazz Rp2.200 (target selesai jam 17:00)',
+                        'Deployment Warisan Kopi - Kesalahan di sisi Marketing, PKS belum clear, SLA masih dalam 7 hari kerja',
+                        'Routing JABODETABEK - Deploy kosong hingga Jumat, menunggu info posisi mesin dari Sales, survey di 3 lokasi, rencana masuk minggu ke-4',
+                        'Tim Maintenance - Mesin Recharge Balai Kota (kendala akses, offline), TMII & Transsnow World (H-1 perlu info PM)',
+                        'Dashboard Monitoring - GSheet tidak akan digunakan lagi, fitur dashboard baru untuk Maintain, WH, Deploy, PM'
+                    ],
+                    decisions: [
+                        'Dashboard Finance Ops dilanjutkan dengan target penyelesaian maksimal jam 17:00',
+                        'Deployment Warisan Kopi akan diselesaikan setelah PKS clear dari Marketing',
+                        'Routing JABODETABEK akan masuk minggu ke-4 akhir bulan setelah survey 3 lokasi selesai',
+                        'GSheet akan dihentikan dan diganti dengan Dashboard baru',
+                        'Dashboard baru akan mencakup: analisa mesin (offline, bermasalah), stok opname, rules knowledge mesin, equipment replacement/relokasi',
+                        'Uji KIR (6 bulan) dan Service Mobil (4 bulan) akan dimonitor melalui kalender dashboard',
+                        'Daily report summary warehouse akan mengikuti rules yang sudah ditetapkan'
+                    ],
+                    actionItems: [
+                        { task: 'Selesaikan selisih data Flazz Rp2.200', pic: 2, deadline: '2026-05-20 17:00' },
+                        { task: 'Clear PKS dari Marketing untuk Deployment Warisan Kopi', pic: 3, deadline: '2026-05-22' },
+                        { task: 'Follow-up info posisi mesin ke Sales untuk Routing JABODETABEK', pic: 4, deadline: '2026-05-21' },
+                        { task: 'Koordinasi PM untuk akses masuk TMII & Transsnow World', pic: 2, deadline: '2026-05-21' },
+                        { task: 'Selesaikan survey di lokasi ke-4 untuk Routing JABODETABEK', pic: 4, deadline: '2026-05-29' },
+                        { task: 'Develop Dashboard baru untuk Maintain, WH, Deploy, PM', pic: 2, deadline: '2026-06-15' },
+                        { task: 'Setup monitoring Uji KIR dan Service Mobil di Dashboard', pic: 3, deadline: '2026-06-10' },
+                        { task: 'Implementasi daily report rules di Dashboard', pic: 5, deadline: '2026-06-10' }
+                    ]
+                }
             }
         ];
+
         appState.users = dummyUsers;
         appState.meetings = dummyMeetings;
 
@@ -1278,7 +1364,7 @@
                         <form id="loginForm">
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="email" id="loginEmail" placeholder="admin@ops1" required>
+                                <input type="email" id="loginEmail" placeholder="admin@company.com" required>
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
@@ -1295,6 +1381,9 @@
                             <button type="submit" class="btn btn-primary btn-block mt-3">Login</button>
                         </form>
                         <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; font-size: 12px; color: var(--text-light);">
+                            <p><strong>Demo Credentials:</strong></p>
+                            <p>Admin: admin@company.com / admin123</p>
+                            <p>Staff: budi@company.com / staff123</p>
                         </div>
                     </div>
                 </div>
@@ -1497,6 +1586,15 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Statistik Meeting (Last 12 Months)</h3>
+                        </div>
+                        <div style="position: relative; height: 300px;">
+                            <canvas id="statsChart"></canvas>
+                        </div>
+                    </div>
                 </div>
             `;
         }
@@ -1604,7 +1702,9 @@
                                     <label>Ruangan / Lokasi *</label>
                                     <select id="meetingRoom" required>
                                         <option value="">Pilih Ruangan</option>
-                                        <option value="Meeting Room">Meeting Room</option>
+                                        <option value="Meeting Room A">Meeting Room A</option>
+                                        <option value="Meeting Room B">Meeting Room B</option>
+                                        <option value="Meeting Room C">Meeting Room C</option>
                                         <option value="Virtual">Virtual</option>
                                     </select>
                                 </div>
@@ -1615,7 +1715,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Deskripsi Meeting</label>
-                                <input type="meetingDesc" placeholder="Masukkan deskripsi meeting...">
+                                <textarea id="meetingDesc" placeholder="Masukkan deskripsi meeting..."></textarea>
                             </div>
                         </div>
 
@@ -1813,13 +1913,16 @@
                         </div>
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
                             <button class="btn btn-primary" onclick="exportMeetingsPDF()">
-                                <i class="fa fa-download"></i> Export PDF
+                                ${icons.download}
+                                Export PDF
                             </button>
                             <button class="btn btn-primary" onclick="exportMeetingsExcel()">
-                                <i class="fa fa-download"></i> Export Excel
+                                ${icons.download}
+                                Export Excel
                             </button>
                             <button class="btn btn-primary" onclick="exportAttendanceList()">
-                                <i class="fa fa-download"></i> Export Attendance
+                                ${icons.download}
+                                Export Attendance
                             </button>
                         </div>
                     </div>
@@ -1885,6 +1988,13 @@
 
                     <div class="form-section">
                         <h3>Notifikasi</h3>
+                        <div class="settings-item">
+                            <div>
+                                <div style="font-weight: 600;">Email Reminder</div>
+                                <div style="font-size: 12px; color: var(--text-light);">Terima reminder 1 jam sebelum meeting</div>
+                            </div>
+                            <div class="toggle-switch on" onclick="this.classList.toggle('on')"></div>
+                        </div>
                         <div class="settings-item">
                             <div>
                                 <div style="font-weight: 600;">Notifikasi Meeting Baru</div>
